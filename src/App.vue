@@ -32,8 +32,6 @@
     <div class="buttons">
       <button @click="undo">Undo</button>
       <button @click="saveSignature">Save Signature</button>
-      <button @click="change">Change Color</button>
-      <button @click="resume">Resume Color</button>
     </div>
   </div>
 </template>
@@ -203,18 +201,6 @@ const saveSignature = () => {
   console.log("Saved signature data", data);
 };
 
-const change = () => {
-  options.value = {
-    penColor: "#00f",
-  };
-};
-
-const resume = () => {
-  options.value = {
-    penColor: "#c0f",
-  };
-};
-
 const signaturePad = ref(null);
 
 watch(selectedPdf, (newVal) => {
@@ -229,17 +215,6 @@ onMounted(() => {
 </script>
 
 <style>
-@import "@tato30/vue-pdf/style.css";
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
 #signature {
   border: double 3px transparent;
   border-radius: 5px;
